@@ -80,14 +80,11 @@ void KCycleColorCoding::bfs_dp_search_k_cycle(
     std::vector<bool>& fully_explored,
     std::unordered_map<uint32_t, std::unordered_map<int, double>>& dp_table
 ) {
-    // 初始化 BFS 队列
     std::queue<std::tuple<uint32_t, int, double, std::vector<uint32_t>>> q;
 
-    // 颜色集初始化
     int start_color = 1 << colors.at(start);
     dp_table[start][start_color] = 0.0;
     
-    // 路径初始化
     std::vector<uint32_t> init_path = {start};
     q.push({start, start_color, 0.0, init_path});
 
@@ -95,11 +92,10 @@ void KCycleColorCoding::bfs_dp_search_k_cycle(
         auto [current, color_set, current_weight, path] = q.front();
         q.pop();
 
-        // 当路径长度达到 k 时，检查是否能回到 start 形成闭环
         if (path.size() == k_) {
             auto [neighbors, weights, deg] = new_graph.get_out_neighbors(current);
             for (int i = 0; i < deg; i++) {
-                if (neighbors[i] == start) {  // 形成 k-cycle
+                if (neighbors[i] == start) { 
                     double cycle_weight = current_weight + weights[i];
 
                     if (cycle_weight < local_best_weight) {
@@ -109,28 +105,26 @@ void KCycleColorCoding::bfs_dp_search_k_cycle(
                     }
                 }
             }
-            continue; // 不再扩展该路径
+            continue; 
         }
 
-        // 访问当前节点的邻居
         auto [neighbors, weights, deg] = new_graph.get_out_neighbors(current);
         for (int i = 0; i < deg; i++) {
             uint32_t nxt = neighbors[i];
             double w = weights[i];
 
             if (fully_explored[nxt]) {
-                continue;  // 已完全探索过的节点不再考虑
+                continue;  
             }
 
             int nxt_color = 1 << colors.at(nxt);
             if (color_set & nxt_color) {
-                continue;  // 颜色已被使用，剪枝
+                continue; 
             }
 
             int new_color_set = color_set | nxt_color;
             double new_weight = current_weight + w;
 
-            // 只在更优时更新 dp_table
             if (!dp_table[nxt].count(new_color_set) || dp_table[nxt][new_color_set] > new_weight) {
                 dp_table[nxt][new_color_set] = new_weight;
 
@@ -321,7 +315,6 @@ std::pair<double, std::vector<uint32_t>> KCycleColorCoding::find_most_negative_k
         auto color_assign_duration = std::chrono::duration_cast<std::chrono::milliseconds>(
                                          color_assign_time - start_time).count();
 
-        // 输出结果
         results_file << "Trial " << (trial + 1) << ":\n";
         if (!global_most_negative_cycle.empty()
             && global_most_negative_weight < std::numeric_limits<double>::infinity()) 
