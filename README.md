@@ -20,7 +20,7 @@ This repository contains the implementation of **RICH**, including the source co
 Before running **RICH**, the input graph must be converted into a compressed sparse row (CSR) format. Run the following command:
 
 ```zsh
-python convert_to_python.py original_graph_path csr_graph_path
+python convert_to_csr.py original_graph_path csr_graph_path
 ```
 
 ### 2. Compile the Code
