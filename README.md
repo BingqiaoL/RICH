@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Cryptocurrency arbitrage is a challenging data science problem characterized by rapidly fluctuating price discrepancies across token pairs, necessitating real-time solutions. To address this challenge, we model it as a \(k\)-hop negative cycle detection problem in token graphs and introduce **RICH**: **R**eal-time **I**dentification of negative **C**ycles for **H**igh-efficiency arbitrage.
+Arbitrage is a challenging data science problem characterized by rapidly fluctuating price discrepancies across token pairs, necessitating real-time solutions. To address this challenge, we model it as a \(k\)-hop negative cycle detection problem in token graphs and introduce **RICH**: **R**eal-time **I**dentification of negative **C**ycles for **H**igh-efficiency arbitrage.
 
 
 ## Repository Overview
@@ -60,6 +60,8 @@ To execute **RICH** on a dataset, follow these steps:
 
 For questions or collaboration inquiries, feel free to contact us.
 
----
 
-Enjoy using **RICH** for efficient cryptocurrency arbitrage!
+## Disclaimer
+RICH is developed exclusively for academic research. Its deployment in real-world trading scenarios must account for regulatory and ethical considerations. Any practical use is at the user's own risk and should carefully consider multiple market factors such as slippage and execution delays.
+
+
