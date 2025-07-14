@@ -16,6 +16,11 @@ set(DP_WITH_FILTER_FULL_SOURCES
     directed_graph.cpp
 )
 
+set(DP_WITH_FILTER_FULL_SOURCES_ATMOSTK
+    dp_with_filter_full_atmost_k.cpp
+    directed_graph.cpp
+)
 
 # Add executable
 add_executable(DPWithFilterFull ${DP_WITH_FILTER_FULL_SOURCES})
+add_executable(DPWithFilterFullAtMostk ${DP_WITH_FILTER_FULL_SOURCES_ATMOSTK})

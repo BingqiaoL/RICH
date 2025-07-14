@@ -41,6 +41,13 @@ After compilation, run the binary for negative cycle detection:
 ```zsh
 ./DPWithFilterFull
 ```
+
+If the at-most k variant is preferred, then use:
+
+```zsh
+./DPWithFilterFullAtMostk
+```
+
 Then, specify the dataset, k, number of coloring process. 
 
 ## Data
@@ -62,6 +69,8 @@ For questions or collaboration inquiries, feel free to contact us.
 
 
 ## Disclaimer
+
 RICH is developed exclusively for academic research. Its deployment in real-world trading scenarios must account for regulatory and ethical considerations. Any practical use is at the user's own risk and should carefully consider multiple market factors such as slippage and execution delays.
 
+---
 
